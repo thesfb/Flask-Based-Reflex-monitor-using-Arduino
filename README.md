@@ -45,11 +45,16 @@ This is a simple web application built with Flask that allows users to play a re
 
 4. Optionally, press the "Generate Graph" button to see the reaction times plotted over time.
 
+### Arduino Code
+
+Check the `arduino-code` folder for a sample Arduino code that can be used with this project.
+
 ## Project Structure
 
 - `app.py`: Main Flask application.
 - `reaction.py`: Module containing the reaction time calculation logic.
 - `templates/`: HTML templates for rendering the web pages.
+- `arduino-code/`: Folder containing a sample Arduino code.
 
 
 
