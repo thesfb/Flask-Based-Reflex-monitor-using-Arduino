@@ -3,15 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reaction Time Display</title>
+    <title>Reaction Time Game</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
-
-    <div class="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
-        <h1 class="text-3xl font-bold mb-4">Reaction Time Display</h1>
-        <p class="text-lg">Latest Reaction Time: <span class="font-semibold">{{ time }} seconds</span></p>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold mb-8">Reaction Time Game</h1>
+        <form method="post" class="mb-8">
+            <label for="port" class="block text-sm font-medium text-gray-600">Enter Port Number: [COM1,COM2,COM3,COM4,COM5,COM6,COM7]</label>
+            <input type="text" id="port" name="port" required class="mt-1 p-2 border rounded-md w-full">
+            <button type="submit" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md">Start Game</button>
+        </form>
+        {% if time %}
+            <div class="bg-green-100 border-l-4 border-green-500 p-4 mb-4">
+                <p class="text-lg mb-2">Your reaction time: <span class="font-bold">{{ time }} milliseconds</span></p>
+                <button onclick="window.location.reload()" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors duration-300">Replay</button>
+            </div>
+        {% endif %}
+        {% if plot %}
+            <div class="bg-gray-200 p-4 rounded-md mb-4">
+                <p class="text-lg mb-2 font-bold">Reaction Times Over Time</p>
+                <div>{{ plot|safe }}</div>
+            </div>
+        {% endif %}
+        <form method="post" action="{{ url_for('generate_graph') }}">
+            <button type="submit" class="px-4 py-2 bg-indigo-500 text-white rounded-md">Generate Graph</button>
+        </form>
     </div>
-
 </body>
 </html>
