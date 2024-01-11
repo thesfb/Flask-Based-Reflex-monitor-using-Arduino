@@ -47,14 +47,14 @@ This is a simple web application built with Flask that allows users to play a re
 
 ### Arduino Code
 
-Check the `arduino-code` folder for a sample Arduino code that can be used with this project.
+Check the `arduino file` folder for a sample Arduino code that can be used with this project.
 
 ## Project Structure
 
 - `app.py`: Main Flask application.
 - `reaction.py`: Module containing the reaction time calculation logic.
 - `templates/`: HTML templates for rendering the web pages.
-- `arduino-code/`: Folder containing a sample Arduino code.
+- `arduino file/`: Folder containing a sample Arduino code.
 
 
 
